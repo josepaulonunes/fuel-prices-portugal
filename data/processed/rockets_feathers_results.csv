@@ -1,3 +1,3 @@
-fuel,pass_through_rises,pass_through_falls,p_value_difference
-gasoline,0.88,0.87,0.95
-diesel,1.4,0.9,0.001
+fuel,pass_through_rises,pass_through_falls,p_value_difference,p_value_difference_HAC
+gasoline,0.88,0.87,0.95,0.969
+diesel,1.4,0.9,0.001,0.027
