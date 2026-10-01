@@ -14,6 +14,7 @@ And if they do, is it the petrol stations or the refining and wholesale market?
 - **Gasoline shows no asymmetry** against either cost measure.
 - Retail margins (pump price minus reference price) average about 20 cents per litre for gasoline and 17 cents for diesel. The diesel margin was squeezed close to zero during the spring 2022 price spike, and the gasoline margin stayed clearly above the diesel margin in 2025 and 2026.
 - On average since 2019, taxes make up 49% of the price of a litre of diesel.
+- **Portugal vs Spain:** fuel in Portugal costs on average 17.6 cents per litre more than in Spain for gasoline and 12.4 cents more for diesel, but the whole gap comes from taxes. Before taxes, Portuguese prices are 2 to 3 cents per litre lower than Spanish prices.
 
 ## Pump prices vs Brent
 ![Pump prices vs Brent](figures/pump_prices_vs_brent.png)
@@ -26,6 +27,11 @@ And if they do, is it the petrol stations or the refining and wholesale market?
 
 ## Rockets and feathers
 ![Rockets and feathers comparison](figures/rockets_feathers_comparison.png)
+
+## Portugal vs Spain vs EU
+![Portugal, Spain and EU prices](figures/portugal_spain_eu_prices.png)
+
+![Portugal minus Spain, price without taxes](figures/portugal_vs_spain_pretax_gap.png)
 
 ## Data sources
 - **Brent crude oil price** (USD per barrel): FRED, series DCOILBRENTEU
@@ -122,7 +128,7 @@ Notebook 02 also includes a simpler first version of the model, with two weeks o
 ## Project structure
     data/raw/         original data, never edited by hand
     data/processed/   cleaned data and results produced by the notebooks
-    notebooks/        analysis, run in order (01, 02, 03)
+    notebooks/        analysis, run in order (01 TO 05)
     figures/          charts used in this README
 
 ## How to run
@@ -130,7 +136,7 @@ Notebook 02 also includes a simpler first version of the model, with two weeks o
     .venv\Scripts\activate
     pip install -r requirements.txt
 
-Then run the notebooks in order: 01_brent.ipynb, 02_fuel_prices.ipynb, 03_ense_reference.ipynb.
+Then run the notebooks in order: 01_brent.ipynb, 02_fuel_prices.ipynb, 03_ense_reference.ipynb, 04_portugal_vs_eu.ipynb, 05_monday_forecast.ipynb.
 
 ## References
 - Bacon, R. W. (1991). Rockets and feathers: the asymmetric speed of adjustment of UK retail gasoline prices to cost changes. *Energy Economics*, 13(3), 211 to 218.
