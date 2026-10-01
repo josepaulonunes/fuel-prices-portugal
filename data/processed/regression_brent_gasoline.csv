@@ -1,0 +1,11 @@
+,coefficient,std_error_HAC,p_value
+Intercept,0.0,0.001,0.699
+brent_up,0.77,0.113,0.0
+brent_up_lag1,0.001,0.116,0.994
+brent_up_lag2,-0.142,0.111,0.201
+brent_up_lag3,0.113,0.114,0.32
+brent_down,0.665,0.091,0.0
+brent_down_lag1,0.1,0.111,0.368
+brent_down_lag2,-0.004,0.083,0.963
+brent_down_lag3,-0.053,0.094,0.575
+d_gasoline_lag1,0.159,0.074,0.032

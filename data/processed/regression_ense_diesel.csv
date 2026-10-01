@@ -1,0 +1,11 @@
+,coefficient,std_error_HAC,p_value
+Intercept,-0.0,0.001,0.629
+ref_up,0.892,0.071,0.0
+ref_up_lag1,0.263,0.081,0.001
+ref_up_lag2,0.102,0.044,0.021
+ref_up_lag3,-0.098,0.038,0.011
+ref_down,0.674,0.053,0.0
+ref_down_lag1,0.273,0.075,0.0
+ref_down_lag2,-0.004,0.058,0.95
+ref_down_lag3,0.153,0.065,0.019
+d_pump_lag1,-0.288,0.066,0.0
