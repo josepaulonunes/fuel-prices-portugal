@@ -1,0 +1,7 @@
+fuel,country,pump_price,without_taxes,taxes
+gasoline,PT,1.668,0.744,0.924
+gasoline,ES,1.492,0.772,0.72
+gasoline,EU,1.61,0.727,0.883
+diesel,PT,1.551,0.792,0.759
+diesel,ES,1.427,0.812,0.615
+diesel,EU,1.541,0.791,0.75
