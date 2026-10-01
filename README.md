@@ -25,7 +25,8 @@ and do they rise faster than they fall ("rockets and feathers")?
 ## Data sources
 - **Brent crude oil price** (USD per barrel): FRED, series DCOILBRENTEU
 - **EUR/USD exchange rate**: FRED, series DEXUSEU
-- **Portuguese pump prices with and without taxes**: European Commission, Weekly Oil Bulletin
+- **Portuguese pump prices with and without taxes**: European Commission, Weekly Oil Bulletin~
+- **Reference prices for gasoline and diesel** (daily, with taxes, without retail costs and margin): ENSE, Entidade Nacional para o Setor Energético
 
 ## Method
 1. Brent converted to euros per litre and averaged by week.
