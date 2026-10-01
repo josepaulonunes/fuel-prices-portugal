@@ -3,6 +3,10 @@
 How do Portuguese pump prices for gasoline and diesel respond to international oil prices,
 and do they rise faster than they fall ("rockets and feathers")?
 
+**[Open the interactive dashboard on Tableau Public](https://public.tableau.com/app/profile/jos.nunes7914/viz/FuelpricesinPortugalvsBrent/Fuelpricesdashboard)**
+
+![Dashboard](figures/tableau_dashboard.png)
+
 ![Pump prices vs Brent](figures/pump_prices_vs_brent.png)
 
 ## Key findings
