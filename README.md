@@ -1,7 +1,7 @@
 # Fuel Prices in Portugal vs Brent Crude
 
 How do Portuguese pump prices for gasoline and diesel respond to oil prices, and do they rise faster than they fall ("rockets and feathers")?
-And if they do, is it the petrol stations or the refining and wholesale market?
+If they do, is it the petrol stations or the refining and wholesale market? How do Portuguese prices compare with Spain and the EU, and can next Monday's price change be predicted?
 
 **[Open the interactive dashboard on Tableau Public](https://public.tableau.com/app/profile/jos.nunes7914/viz/FuelpricesinPortugalvsBrent/Fuelpricesdashboard)**
 
@@ -15,6 +15,7 @@ And if they do, is it the petrol stations or the refining and wholesale market?
 - Retail margins (pump price minus reference price) average about 20 cents per litre for gasoline and 17 cents for diesel. The diesel margin was squeezed close to zero during the spring 2022 price spike, and the gasoline margin stayed clearly above the diesel margin in 2025 and 2026.
 - On average since 2019, taxes make up 49% of the price of a litre of diesel.
 - **Portugal vs Spain:** fuel in Portugal costs on average 17.6 cents per litre more than in Spain for gasoline and 12.4 cents more for diesel, but the whole gap comes from taxes. Before taxes, Portuguese prices are 2 to 3 cents per litre lower than Spanish prices.
+- **Monday forecast:** last week's change in the ENSE reference price predicts Monday's pump price change with an average error of about 1 cent per litre (0.88 for gasoline, 1.06 for diesel) on 2025 and 2026 data not used to estimate the model. This is less than half the error of a "no change" forecast, and the direction (up or down) is right in 86% of weeks for gasoline and 90% for diesel.
 
 ## Pump prices vs Brent
 ![Pump prices vs Brent](figures/pump_prices_vs_brent.png)
@@ -30,6 +31,18 @@ And if they do, is it the petrol stations or the refining and wholesale market?
 
 ## Portugal vs Spain vs EU
 ![Portugal, Spain and EU prices](figures/portugal_spain_eu_prices.png)
+
+## Forecasting Monday's pump price change
+![Monday forecast, diesel](figures/monday_forecast_diesel.png)
+
+The model is estimated on 2019 to 2024 and tested on 2025 and 2026:
+
+| Fuel | Test weeks | Average error, model (cents) | Average error, "no change" (cents) | Right direction |
+|---|---|---|---|---|
+| Gasoline | 91 | 0.88 | 1.96 | 85.7% |
+| Diesel | 91 | 1.06 | 3.02 | 90.1% |
+
+The model follows normal weeks closely but underestimates the largest shocks, such as the diesel increase in March 2026.
 
 ![Portugal minus Spain, price without taxes](figures/portugal_vs_spain_pretax_gap.png)
 
@@ -124,6 +137,7 @@ Notebook 02 also includes a simpler first version of the model, with two weeks o
 - The retail margin includes distribution, station costs and VAT on them, so it is not the same as profit.
 - National weekly averages hide differences between stations and brands.
 - A few weeks are missing in the Oil Bulletin data, so a small number of price changes cover two or three weeks.
+- The forecast uses the latest published ENSE reference prices, which can be revised after publication, so real time accuracy may be slightly lower.
 
 ## Project structure
     data/raw/         original data, never edited by hand
