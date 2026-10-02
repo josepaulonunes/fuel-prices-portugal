@@ -141,7 +141,7 @@ Notebook 02 also includes a simpler first version of the model, with two weeks o
 ## Project structure
     data/raw/         original data, never edited by hand
     data/processed/   cleaned data and results produced by the notebooks
-    notebooks/        analysis, run in order (01 TO 05)
+    notebooks/        analysis, run in order (01 to 05)
     figures/          charts used in this README
 
 ## How to run
