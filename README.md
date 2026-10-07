@@ -119,14 +119,14 @@ The main model uses this week and the three weeks before. To check that this cho
 
 | Fuel | Step | 1 week | 2 weeks | 3 weeks | 4 weeks | 6 weeks |
 |---|---|---|---|---|---|---|
-| Gasoline | Brent to pump | 0.93 | 0.86 | 0.86 | 0.66 | 0.21 |
+| Gasoline | Brent to pump | 0.93 | 0.86 | 0.86 | 0.66 | 0.20 |
 | Gasoline | Brent to ENSE | 0.51 | 0.47 | 0.74 | 0.97 | 0.91 |
-| Gasoline | ENSE to pump | 0.37 | 0.58 | 1.00 | 0.65 | 0.52 |
-| Diesel | Brent to pump | 0.06 | 0.09 | 0.05 | 0.21 | 0.45 |
-| Diesel | Brent to ENSE | 0.31 | 0.37 | 0.19 | 0.51 | 0.79 |
-| Diesel | ENSE to pump | **0.01** | **0.01** | 0.36 | 0.66 | 0.80 |
+| Gasoline | ENSE to pump | 0.37 | 0.57 | 1.00 | 0.64 | 0.52 |
+| Diesel | Brent to pump | 0.05 | 0.09 | **0.05** | 0.21 | 0.44 |
+| Diesel | Brent to ENSE | 0.31 | 0.36 | 0.18 | 0.50 | 0.78 |
+| Diesel | ENSE to pump | **0.01** | **0.01** | 0.36 | 0.65 | 0.80 |
 
-Two things stand out. Diesel against Brent is only close to significant with 3 weeks or fewer. And diesel from the reference price to the pump looks asymmetric with 1 or 2 weeks, because price cuts take a week or two longer to reach the pump and a short model stops counting before they have fully arrived. With 3 weeks or more the difference disappears, and the AIC prefers 4 to 6 weeks for this step. So stations are slower to pass on cuts, but in the end they pass on the same amount.
+Two things stand out. Diesel against Brent is borderline with 3 weeks or fewer (p between 0.05 and 0.09) and clearly not significant with 4 or 6. And diesel from the reference price to the pump looks asymmetric with 1 or 2 weeks, because price cuts take a week or two longer to reach the pump and a short model stops counting before they have fully arrived. With 3 weeks or more the difference disappears, and the AIC prefers 4 to 6 weeks for this step. So stations are slower to pass on cuts, but in the end they pass on the same amount.
 
 ### Error correction model
 
