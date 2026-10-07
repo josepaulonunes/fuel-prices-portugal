@@ -1,4 +1,4 @@
-# Fuel Prices in Portugal vs Brent Crude
+# Rockets and Feathers? How Oil Prices Reach the Pump in Portugal
 
 I started this project with a simple question: when oil prices go up, do Portuguese pump prices go up faster than they come down when oil gets cheaper? People call this "rockets and feathers". If it happens, I wanted to know where: at the petrol stations, or earlier, in refining and wholesale. Along the way I also compared Portugal with Spain and tried to predict next Monday's price change.
 
@@ -12,7 +12,7 @@ The data is weekly, from January 2019 to September 2026.
 
 Short answer: petrol stations in Portugal pass on cost increases and decreases in the same way. Against the ENSE reference price, a 1 cent rise in the cost raises the diesel pump price by 0.90 cents in the long run, and a 1 cent fall lowers it by 0.85 cents. The difference is not significant (p = 0.37). For gasoline it is 0.78 in both directions. Price cuts do take a week or two longer to show up at the pump, but after about three weeks there is no gap left.
 
-The only place where I found something that looks like rockets and feathers is diesel against crude oil: 1.34 cents for a rise in Brent against 0.80 for a fall (p = 0.047). But this comes from 2022. When I take that year out, the difference is no longer significant (p = 0.29). In 2022 refined diesel became much more expensive than crude oil after the sanctions on Russia, and that gap took a long time to close.
+The only place where I found something that looks like rockets and feathers is diesel against crude oil: 1.34 cents for a rise in Brent against 0.80 for a fall (p = 0.047). But this comes from 2022. When I take that year out, the difference is no longer significant (p = 0.29). It also goes away if the model allows 4 or more weeks for prices to adjust, so I would not read much into it. In 2022 refined diesel became much more expensive than crude oil after the sanctions on Russia, and that gap took a long time to close.
 
 Comparing Brent with the ENSE reference price, the numbers suggest that if there is an asymmetry, it happens in refining and wholesale (1.48 vs 1.06 for diesel). The evidence is weak, though (p = 0.18), so I would not claim more than that.
 
@@ -67,7 +67,7 @@ The model beats both rules. The gain is clear for gasoline and smaller for diese
 3. I split the price into oil cost, margin and taxes.
 4. Pass-through is measured with an asymmetric distributed lag model, estimated by OLS with Newey-West standard errors (4 lags).
 5. I ran it for three steps of the price chain: Brent to the pump price (without taxes), Brent to the ENSE reference price, and the ENSE reference price to the pump price (with taxes).
-6. As a robustness check, I ran everything again without 2022.
+6. As robustness checks, I ran everything again without 2022 and with 1 to 6 weeks of lags.
 7. The week by week chart above comes from the estimated coefficients.
 8. Finally, an asymmetric error correction model (Engle and Granger two step method) measures how fast prices go back to their usual level.
 
@@ -112,6 +112,21 @@ The ENSE reference price explains much more of the weekly changes in pump prices
 | Without 2022 | Diesel | ENSE to pump | 0.92 | 0.83 | 0.118 |
 
 Only one result is significant, diesel from Brent to the pump, and it goes away once 2022 is excluded. Values above 1 against Brent are not a mistake: taxes and refining margins also move with the oil price. What matters for the test is the difference between rises and falls.
+
+### How many weeks of lags?
+
+The main model uses this week and the three weeks before. To check that this choice does not drive the results, I ran it again with 1, 2, 3, 4 and 6 weeks, always on the same weeks so the AIC can be compared (lower AIC means a better balance between fit and number of terms). The table shows the p-value of the symmetry test.
+
+| Fuel | Step | 1 week | 2 weeks | 3 weeks | 4 weeks | 6 weeks |
+|---|---|---|---|---|---|---|
+| Gasoline | Brent to pump | 0.93 | 0.86 | 0.86 | 0.66 | 0.21 |
+| Gasoline | Brent to ENSE | 0.51 | 0.47 | 0.74 | 0.97 | 0.91 |
+| Gasoline | ENSE to pump | 0.37 | 0.58 | 1.00 | 0.65 | 0.52 |
+| Diesel | Brent to pump | 0.06 | 0.09 | 0.05 | 0.21 | 0.45 |
+| Diesel | Brent to ENSE | 0.31 | 0.37 | 0.19 | 0.51 | 0.79 |
+| Diesel | ENSE to pump | **0.01** | **0.01** | 0.36 | 0.66 | 0.80 |
+
+Two things stand out. Diesel against Brent is only close to significant with 3 weeks or fewer. And diesel from the reference price to the pump looks asymmetric with 1 or 2 weeks, because price cuts take a week or two longer to reach the pump and a short model stops counting before they have fully arrived. With 3 weeks or more the difference disappears, and the AIC prefers 4 to 6 weeks for this step. So stations are slower to pass on cuts, but in the end they pass on the same amount.
 
 ### Error correction model
 
