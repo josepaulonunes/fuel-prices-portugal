@@ -1,23 +1,28 @@
 # Fuel Prices in Portugal vs Brent Crude
 
-How do Portuguese pump prices for gasoline and diesel respond to oil prices, and do they rise faster than they fall ("rockets and feathers")?
-If they do, is it the petrol stations or the refining and wholesale market? How do Portuguese prices compare with Spain and the EU, and can next Monday's price change be predicted?
+I started this project with a simple question: when oil prices go up, do Portuguese pump prices go up faster than they come down when oil gets cheaper? People call this "rockets and feathers". If it happens, I wanted to know where: at the petrol stations, or earlier, in refining and wholesale. Along the way I also compared Portugal with Spain and tried to predict next Monday's price change.
 
-Weekly data from January 2019 to September 2026.
+The data is weekly, from January 2019 to September 2026.
 
-**[Open the interactive dashboard on Tableau Public](https://public.tableau.com/app/profile/jos.nunes7914/viz/FuelpricesinPortugalvsBrent/Fuelpricesdashboard)**
+**[Interactive dashboard on Tableau Public](https://public.tableau.com/app/profile/jos.nunes7914/viz/FuelpricesinPortugalvsBrent/Fuelpricesdashboard)**
 
 ![Dashboard](figures/tableau_dashboard.png)
 
-## Key findings
-- **Petrol stations pass on cost rises and falls symmetrically.** Against the ENSE reference price, a 1 cent rise raises the diesel pump price by 0.90 cents in the long run and a 1 cent fall lowers it by 0.85 cents (p = 0.37). Gasoline: 0.78 vs 0.78. Falls take one or two weeks longer to come through, but the gap closes after about three weeks.
-- **The only sign of "rockets and feathers" is diesel against crude oil, and it comes from the 2022 energy crisis.** Against Brent, diesel rises are passed on more than falls (1.34 vs 0.80, p = 0.047), but the difference disappears when 2022 is excluded (p = 0.29).
-- **The estimates point to the refining and wholesale stage, but the evidence is weak.** From Brent to the ENSE reference price, diesel rises are passed on more than falls (1.48 vs 1.06), but the difference is not statistically significant (p = 0.18).
-- **High diesel margins disappear fast, squeezed margins recover slowly.** An error correction model shows that when the diesel pump price is above its normal level relative to the reference price, half of the gap closes in about 2 weeks; when it is below, it takes about 16 weeks (p = 0.04). This is the opposite of rockets and feathers.
-- Retail margins (pump price minus reference price, including VAT on the margin) average about 20 cents per litre for gasoline and 17 cents for diesel. The diesel margin was squeezed close to zero during the spring 2022 price spike.
-- On average since 2019, taxes make up 49% of the price of a litre of diesel.
-- **Portugal vs Spain:** fuel in Portugal costs on average 17.6 cents per litre more than in Spain for gasoline and 12.3 cents more for diesel, but the whole gap comes from taxes. Before taxes, Portuguese prices are 2 to 3 cents per litre lower than Spanish prices.
-- **Monday forecast:** last week's change in the ENSE reference price predicts Monday's pump price change with an average error of about 1 cent per litre (0.88 for gasoline, 1.06 for diesel) on 2025 and 2026 data not used to estimate the model. This beats both a "no change" forecast and a simple rule that copies last week's reference price change, and gets the direction right in 86% of weeks for gasoline and 90% for diesel.
+## What I found
+
+Short answer: petrol stations in Portugal pass on cost increases and decreases in the same way. Against the ENSE reference price, a 1 cent rise in the cost raises the diesel pump price by 0.90 cents in the long run, and a 1 cent fall lowers it by 0.85 cents. The difference is not significant (p = 0.37). For gasoline it is 0.78 in both directions. Price cuts do take a week or two longer to show up at the pump, but after about three weeks there is no gap left.
+
+The only place where I found something that looks like rockets and feathers is diesel against crude oil: 1.34 cents for a rise in Brent against 0.80 for a fall (p = 0.047). But this comes from 2022. When I take that year out, the difference is no longer significant (p = 0.29). In 2022 refined diesel became much more expensive than crude oil after the sanctions on Russia, and that gap took a long time to close.
+
+Comparing Brent with the ENSE reference price, the numbers suggest that if there is an asymmetry, it happens in refining and wholesale (1.48 vs 1.06 for diesel). The evidence is weak, though (p = 0.18), so I would not claim more than that.
+
+There is also something I did not expect. With an error correction model, when the diesel pump price is above its usual level compared with the reference price, half of that gap disappears in about 2 weeks. When it is below its usual level, it takes about 16 weeks to recover (p = 0.04). In other words, unusually high margins do not last, while squeezed margins take months to come back. That is the opposite of rockets and feathers.
+
+A few other results:
+- Taxes are about half of what you pay: 49% of the price of a litre of diesel on average since 2019.
+- The retail margin (pump price minus reference price, VAT on the margin included) is around 20 cents per litre for gasoline and 17 cents for diesel. In spring 2022 the diesel margin dropped almost to zero.
+- Fuel in Portugal costs 17.6 cents per litre more than in Spain for gasoline and 12.3 cents more for diesel. All of that gap is taxes. Before taxes, Portugal is actually 2 to 3 cents cheaper.
+- Last week's change in the ENSE reference price predicts Monday's pump price change with an average error of about 1 cent per litre (0.88 for gasoline, 1.06 for diesel). I tested it on 2025 and 2026, which the model never saw. It gets the direction right in 86% of weeks for gasoline and 90% for diesel.
 
 ## Pump prices vs Brent
 ![Pump prices vs Brent](figures/pump_prices_vs_brent.png)
@@ -28,59 +33,57 @@ Weekly data from January 2019 to September 2026.
 ## Retail margins
 ![Retail margins](figures/retail_margins.png)
 
-## Rockets and feathers
-How much of a 1 cent rise (red) and a 1 cent fall (blue) in the cost reaches the pump price, week by week:
+## Rockets and feathers, week by week
+This chart shows how much of a 1 cent rise (red) or a 1 cent fall (blue) in the cost reaches the pump price in each week after the change. If the red line climbed faster and higher than the blue one, that would be rockets and feathers. Against the ENSE reference price, both lines end up in the same place.
 
 ![Cumulative pass-through](figures/cumulative_response.png)
 
 ## Portugal vs Spain vs EU
 ![Portugal, Spain and EU prices](figures/portugal_spain_eu_prices.png)
 
+![Portugal minus Spain, price without taxes](figures/portugal_vs_spain_pretax_gap.png)
+
 ## Forecasting Monday's pump price change
 ![Monday forecast, diesel](figures/monday_forecast_diesel.png)
 
-The model is estimated on 2019 to 2024 and tested on 2025 and 2026:
+I estimated the model on 2019 to 2024 and tested it on 2025 and 2026. To check that it is actually useful, I compared it with two simple rules: assuming the price does not change, and assuming the pump moves exactly as much as the reference price did last week.
 
-| Fuel | Test weeks | Average error, model (cents) | Average error, "no change" (cents) | Average error, "copy the reference price" (cents) | Right direction |
+| Fuel | Test weeks | Error, model (cents) | Error, "no change" (cents) | Error, "copy the reference price" (cents) | Right direction |
 |---|---|---|---|---|---|
 | Gasoline | 91 | 0.88 | 1.96 | 1.25 | 85.7% |
 | Diesel | 91 | 1.06 | 3.02 | 1.19 | 90.1% |
 
-The model beats both benchmarks, clearly for gasoline and by a smaller margin for diesel, because it learns that only part of the reference price change reaches the pump in the first week. It follows normal weeks closely but underestimates the largest shocks, such as the diesel increase in March 2026.
+The model beats both rules. The gain is clear for gasoline and smaller for diesel, where simply copying the reference price already works quite well. The model does well in normal weeks but misses part of the biggest shocks, like the jump in diesel prices in March 2026.
 
-![Portugal minus Spain, price without taxes](figures/portugal_vs_spain_pretax_gap.png)
-
-## Data sources
-- **Brent crude oil price** (USD per barrel): FRED, series DCOILBRENTEU
-- **EUR/USD exchange rate**: FRED, series DEXUSEU
-- **Portuguese pump prices with and without taxes**: European Commission, Weekly Oil Bulletin
-- **Reference prices for gasoline and diesel** (daily, based on international quotes for refined products, biofuels, logistics and taxes, without retail distribution, margin and the VAT on them): ENSE, Entidade Nacional para o Setor Energético
+## Data
+- Brent crude oil price (USD per barrel): FRED, series DCOILBRENTEU
+- EUR/USD exchange rate: FRED, series DEXUSEU
+- Portuguese pump prices with and without taxes: European Commission, Weekly Oil Bulletin
+- Reference prices for gasoline and diesel: ENSE (Entidade Nacional para o Setor Energético). They are published daily and include international quotes for refined products, biofuels, logistics and taxes, but not the retail part (distribution to stations, margin and the VAT on them)
 
 ## Method
-1. Brent converted to euros per litre and averaged by week, from January 2019 to September 2026.
-2. Pump prices matched to the previous week's costs, since Portuguese prices adjust weekly based on last week's quotes.
-3. Price split into oil cost, margin and taxes.
-4. Asymmetric distributed lag model, estimated by OLS with HAC (Newey-West) standard errors with 4 lags.
-5. The model is estimated for three stages of the price chain: Brent to pump price (without taxes), Brent to ENSE reference price, and ENSE reference price to pump price (with taxes).
-6. Robustness check: every model is estimated again without 2022.
-7. Week by week cumulative pass-through computed from the estimated coefficients.
-8. Asymmetric error correction model (Engle and Granger two step method) to measure how fast prices return to their long run relationship with costs.
-
-Notebook 02 also includes a simpler first version of the model, with two weeks of adjustment and no momentum term.
+1. I converted Brent to euros per litre and took weekly averages.
+2. Portuguese pump prices change on Mondays based on the previous week's quotes, so each Monday price is matched to last week's costs.
+3. I split the price into oil cost, margin and taxes.
+4. Pass-through is measured with an asymmetric distributed lag model, estimated by OLS with Newey-West standard errors (4 lags).
+5. I ran it for three steps of the price chain: Brent to the pump price (without taxes), Brent to the ENSE reference price, and the ENSE reference price to the pump price (with taxes).
+6. As a robustness check, I ran everything again without 2022.
+7. The week by week chart above comes from the estimated coefficients.
+8. Finally, an asymmetric error correction model (Engle and Granger two step method) measures how fast prices go back to their usual level.
 
 ## Econometric specification
 
-Weekly change in the pump price explained by rises and falls in the cost measure, this week and in the previous three weeks, plus last week's price change:
+The weekly change in the pump price depends on rises and falls in the cost, this week and in the three weeks before, plus last week's price change:
 
 $$\Delta p_t = \alpha + \sum_{k=0}^{3} \beta_k^{+} \Delta c_{t-k}^{+} + \sum_{k=0}^{3} \beta_k^{-} \Delta c_{t-k}^{-} + \rho \, \Delta p_{t-1} + \varepsilon_t$$
 
-where $\Delta c^{+}$ keeps only cost increases and $\Delta c^{-}$ only cost decreases. Long run pass-through:
+Here $\Delta c^{+}$ keeps only cost increases and $\Delta c^{-}$ only decreases. The long run pass-through is
 
 $$LR^{+} = \frac{\sum_{k} \beta_k^{+}}{1-\rho} \qquad LR^{-} = \frac{\sum_{k} \beta_k^{-}}{1-\rho}$$
 
-Symmetry is tested with an F-test of $H_0: \sum_k \beta_k^{+} = \sum_k \beta_k^{-}$.
+and symmetry is tested with an F-test of $H_0: \sum_k \beta_k^{+} = \sum_k \beta_k^{-}$.
 
-## Econometric results
+## Results
 
 | Cost measure | Fuel | LR rises | LR falls | F statistic | p-value | R² | N |
 |---|---|---|---|---|---|---|---|
@@ -89,14 +92,11 @@ Symmetry is tested with an F-test of $H_0: \sum_k \beta_k^{+} = \sum_k \beta_k^{
 | ENSE reference | Gasoline | 0.78 | 0.78 | 0.00 | 0.999 | 0.71 | 391 |
 | ENSE reference | Diesel | 0.90 | 0.85 | 0.81 | 0.368 | 0.83 | 391 |
 
-- Against Brent, symmetry is rejected for diesel at the 5% level, but not for gasoline.
-- Against the ENSE reference price, symmetry is not rejected for either fuel.
-- The ENSE reference price explains a larger share of weekly pump price changes (R² of 0.71 and 0.83 against 0.53 and 0.60), which supports it as the more relevant cost measure.
-- The momentum term is positive against Brent (prices keep adjusting the following week) and negative against the ENSE reference price (part of last week's change is corrected).
+The ENSE reference price explains much more of the weekly changes in pump prices than Brent does (R² of 0.71 and 0.83 against 0.53 and 0.60), which makes sense, since it is closer to what stations actually pay. One more detail: last week's price change has a positive effect against Brent (prices keep adjusting the week after) and a negative one against the reference price (part of the previous change gets corrected).
 
-## Where in the chain? Robustness without 2022
+### Where in the chain, and what happens without 2022
 
-| Sample | Fuel | Stage | LR rises | LR falls | p-value |
+| Sample | Fuel | Step | LR rises | LR falls | p-value |
 |---|---|---|---|---|---|
 | Full sample | Gasoline | Brent to pump | 0.88 | 0.84 | 0.863 |
 | Full sample | Gasoline | Brent to ENSE | 0.99 | 1.10 | 0.722 |
@@ -111,26 +111,22 @@ Symmetry is tested with an F-test of $H_0: \sum_k \beta_k^{+} = \sum_k \beta_k^{
 | Without 2022 | Diesel | Brent to ENSE | 1.25 | 1.04 | 0.468 |
 | Without 2022 | Diesel | ENSE to pump | 0.92 | 0.83 | 0.118 |
 
-- The diesel asymmetry against Brent is the only significant result, and it disappears without 2022, when refined diesel became much more expensive than crude oil after the sanctions on Russia.
-- Long run values above 1 against Brent reflect taxes and refining margins that move with the oil price; the test compares rises with falls, so this does not affect the conclusion.
+Only one result is significant, diesel from Brent to the pump, and it goes away once 2022 is excluded. Values above 1 against Brent are not a mistake: taxes and refining margins also move with the oil price. What matters for the test is the difference between rises and falls.
 
-## Error correction model
+### Error correction model
 
-First, the long run relationship between the price and the cost is estimated in levels. Then the weekly price change is explained by the same short run terms plus last week's gap from that relationship, split into gaps above and below the normal level:
+I first estimate the long run relationship between the pump price and the reference price in levels. Then I add last week's distance from that relationship to the weekly model, separately for when the price is above and below its usual level:
 
 $$\Delta p_t = \ldots + \theta^{+} \, gap^{+}_{t-1} + \theta^{-} \, gap^{-}_{t-1} + \varepsilon_t$$
 
-A negative $\theta$ means the price moves back towards its normal level. Half life is the number of weeks needed to close half of the gap.
+A negative $\theta$ means the price moves back towards its usual level. The half life is how many weeks it takes to close half of the gap.
 
-| Fuel | Stage | Long run slope | Cointegration p-value | θ above | θ below | Half life above (weeks) | Half life below (weeks) | p-value, equal speed |
-|---|---|---|---|---|---|---|---|---|
-| Gasoline | ENSE to pump | 0.96 | 0.092 | -0.002 | -0.129 | not measurable | 5.0 | 0.244 |
-| Diesel | ENSE to pump | 0.98 | **0.015** | -0.308 | -0.041 | 1.9 | 16.4 | **0.042** |
+| Fuel | Long run slope | Cointegration p-value | θ above | θ below | Half life above (weeks) | Half life below (weeks) | p-value, same speed |
+|---|---|---|---|---|---|---|---|
+| Gasoline | 0.96 | 0.092 | -0.002 | -0.129 | not measurable | 5.0 | 0.244 |
+| Diesel | 0.98 | **0.015** | -0.308 | -0.041 | 1.9 | 16.4 | **0.042** |
 
-- Pump prices move one to one with the reference price in the long run (slope close to 1).
-- For diesel, prices above their normal level fall back within about 2 weeks, while prices below it take about 16 weeks to recover: margins that are too high are competed away quickly.
-- For gasoline, the two speeds are not significantly different.
-- Against Brent there is no stable long run relationship (cointegration p-values of 0.14 and 0.49), because refining margins change a lot over time, so the error correction model is only reported against the ENSE reference price.
+In the long run, pump prices follow the reference price almost one to one. For diesel, a price above its usual level comes back within about 2 weeks, while a price below it takes about 16 weeks. For gasoline I cannot tell the two speeds apart. I only report this model against the reference price: against Brent there is no stable long run relationship (cointegration p-values of 0.14 and 0.49), again because refining margins change so much over time.
 
 <details>
 <summary><b>Full regression tables</b> (coefficients with HAC standard errors in parentheses)</summary>
@@ -173,16 +169,17 @@ Significance: *** p < 0.01, ** p < 0.05, * p < 0.1
 
 </details>
 
-Notebook 02 also includes a simpler first version of the model, with two weeks of adjustment and no momentum term.
+
+Notebook 02 also has a simpler first version of the model, with two weeks of adjustment and no momentum term.
 
 ## Limitations
-- Brent does not include refining margins, so results against Brent mix retail behaviour with the refining market. The ENSE test addresses this.
-- The ENSE reference price is a benchmark based on international quotes and standard costs, not the actual purchase cost of each company.
-- The retail margin includes distribution, station costs and VAT on them, so it is not the same as profit.
+- Brent leaves out refining margins, so results against Brent mix retail behaviour with the refining market. That is why I also use the ENSE reference price.
+- The ENSE reference price is a benchmark built from international quotes and standard costs, not what each company really pays.
+- The retail margin includes distribution, station costs and the VAT on them, so it is not profit.
 - National weekly averages hide differences between stations and brands.
-- The diesel error correction result is close to the 5% threshold and may be influenced by the long margin squeeze of 2022.
-- A few weeks are missing in the Oil Bulletin data, so a small number of price changes cover two or three weeks.
-- The forecast uses the latest published ENSE reference prices, which can be revised after publication, so real time accuracy may be slightly lower.
+- Some weeks are missing in the Oil Bulletin, so a few price changes cover two or three weeks.
+- The forecast uses the latest published ENSE prices, which can be revised, so in real time it would be slightly less accurate.
+- The diesel error correction result is close to the 5% line and may be driven partly by the long margin squeeze of 2022.
 
 ## Project structure
     data/raw/         original data, never edited by hand
@@ -208,3 +205,5 @@ Then run the notebooks in order: 01_brent.ipynb, 02_fuel_prices.ipynb, 03_ense_r
 - FRED, Federal Reserve Bank of St. Louis: [DCOILBRENTEU](https://fred.stlouisfed.org/series/DCOILBRENTEU) and [DEXUSEU](https://fred.stlouisfed.org/series/DEXUSEU)
 - European Commission, [Weekly Oil Bulletin](https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en)
 - ENSE, [Preços de referência](https://www.ense-epe.pt/precos-de-referencia/)
+
+*Personal project built with public data only. The views are my own and do not represent ERSE.*
