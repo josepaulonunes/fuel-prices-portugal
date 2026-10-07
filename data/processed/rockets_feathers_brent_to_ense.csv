@@ -1,0 +1,3 @@
+fuel,lr_up,lr_down,p_value,r2,n
+gasoline,0.99,1.1,0.722,0.47,391
+diesel,1.48,1.06,0.179,0.53,391
