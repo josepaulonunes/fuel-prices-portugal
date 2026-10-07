@@ -1,0 +1,5 @@
+fuel,stage,long_run_slope,coint_p,theta_above,theta_below,half_life_above,half_life_below,p_equal_speed
+gasoline,Brent to pump,1.42,0.14,-0.033,-0.066,20.4,10.2,0.497
+gasoline,ENSE to pump,0.96,0.092,-0.002,-0.129,370.7,5.0,0.244
+diesel,Brent to pump,1.62,0.491,-0.039,-0.069,17.2,9.7,0.566
+diesel,ENSE to pump,0.98,0.015,-0.308,-0.041,1.9,16.4,0.042
