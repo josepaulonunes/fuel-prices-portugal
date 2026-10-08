@@ -225,4 +225,6 @@ Python (pandas, statsmodels, matplotlib), Tableau.
 - European Commission, [Weekly Oil Bulletin](https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en)
 - ENSE, [Preços de referência](https://www.ense-epe.pt/precos-de-referencia/)
 
+## Author
+
 José Nunes. Personal project using public data. Views are my own.
