@@ -209,6 +209,10 @@ Notebook 02 also has a simpler first version of the model, with two weeks of adj
 
 Then run the notebooks in order: 01_brent.ipynb, 02_fuel_prices.ipynb, 03_ense_reference.ipynb, 04_portugal_vs_eu.ipynb, 05_monday_forecast.ipynb, 06_extensions.ipynb.
 
+## Tools
+
+Python (pandas, statsmodels, matplotlib), Tableau.
+
 ## References
 - Bacon, R. W. (1991). Rockets and feathers: the asymmetric speed of adjustment of UK retail gasoline prices to cost changes. *Energy Economics*, 13(3), 211 to 218.
 - Borenstein, S., Cameron, A. C. and Gilbert, R. (1997). Do gasoline prices respond asymmetrically to crude oil price changes? *Quarterly Journal of Economics*, 112(1), 305 to 339.
