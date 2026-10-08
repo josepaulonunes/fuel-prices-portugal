@@ -221,4 +221,4 @@ Then run the notebooks in order: 01_brent.ipynb, 02_fuel_prices.ipynb, 03_ense_r
 - European Commission, [Weekly Oil Bulletin](https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en)
 - ENSE, [Preços de referência](https://www.ense-epe.pt/precos-de-referencia/)
 
-*Personal project built with public data only. The views are my own and do not represent ERSE.*
+José Nunes. Personal project built with public data only. The views are my own.
